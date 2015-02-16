@@ -1,5 +1,7 @@
 #!/bin/bash
 
+module load xrootd/4.1.1
+
 usage="$(basename "$0") [-d] [-r] [-h] -s <source> [-l <location to be copied to>]
 
 	-d: show debugging information
