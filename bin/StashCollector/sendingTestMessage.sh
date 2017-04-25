@@ -16,6 +16,8 @@ hn=$(hostname)
 timestamp=$(date +%s)
 header="[{ \"headers\" : {\"timestamp\" : \"${timestamp}\", \"host\" : \"${hn}\" },"
 body="\"body\" : \"${timestamp},${fname},${fsize},${tcopy},${cs},${sc}\" }]"
+body="\"body\" : { \"timestamp\" : \"${timestamp}\", \"filename\" : \"${fname}\", \"filesize\" : \"${fsize}\", \"copytime\" : \"${tcopy}\", \"cs\" : \"${cs}\", \"sc\" :\"${sc}\" } }]"
+
 echo $header$body > data.json
 
 curl -X POST -H 'Content-Type: application/json; charset=UTF-8' http://hadoop-dev.mwt2.org:80/ -d @data.json
